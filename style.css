@@ -309,7 +309,6 @@ body {
     cursor: pointer;
 }
 
-/* even event */
 .events .event:nth-child(even) {
     background: transparent;
 }
@@ -351,9 +350,8 @@ body {
     color: #fff;
 }
 
-/* add tick in event after */
 .events .event::after {
-    content: "✓";
+    content: "X";
     position: absolute;
     top: 50%;
     right: 0;
@@ -381,8 +379,8 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    color: #878895;
-    border: 2px solid #878895;
+    color: #198F96;
+    border: 2px solid #198F96;
     opacity: 0.5;
     border-radius: 50%;
     background-color: transparent;
@@ -405,7 +403,7 @@ body {
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #878895;
+    color: #958787;
 }
 
 .add-event-wrapper {
@@ -511,11 +509,6 @@ body {
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid var(--primary-clr);
-}
-
-.add-event-footer .add-event-btn:hover {
-    background-color: transparent;
-    color: var(--primary-clr);
 }
 
 /* media queries */
