@@ -86,17 +86,17 @@
 
         <div class="mb-4 flex flex-col">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="endereco">Cliente</label>
-          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="endereco" type="text" placeholder="Nome do Cliente">
+          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cliente" type="text" placeholder="Nome do Cliente">
         </div>
         
         <div class="mb-4 flex flex-col">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="tipo">Serviço</label>
-          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tipo" type="text" placeholder="Tipo do Serviço">
+          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="servico" type="text" placeholder="Tipo do Serviço">
         </div>
 
         <div class="mb-4 flex flex-col">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="preco">Profissional</label>
-          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preco" type="text" placeholder="Profissional">
+          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="profissional" type="text" placeholder="Profissional">
         </div>
 
         <div class="mb-4 flex flex-col">
@@ -155,6 +155,45 @@
       menu.classList.toggle('show');
     }
 
+    async function fetchFuncionarios() {
+      try {
+        const response = await fetch('http://localhost:8080/v1/lavaRapido/funcionarios');
+        const data = await response.json();
+        displayFuncionarios(data);
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    }
+
+    function displayFuncionarios(funcionarios) {
+      const anunciosDiv = document.getElementById('anuncios');
+      anunciosDiv.innerHTML = '';
+      funcionarios.forEach(funcionario => {
+        const anuncio = document.createElement('div');
+        anuncio.classList.add('bg-white', 'p-4', 'rounded-md', 'shadow-md', 'flex', 'justify-between', 'items-center');
+
+        anuncio.innerHTML = `
+          <div>
+            <p><strong>Cliente:</strong> ${funcionario.cliente}</p>
+            <p><strong>Serviço:</strong> ${funcionario.servico}</p>
+            <p><strong>Profissional:</strong> ${funcionario.profissional}</p>
+            <p><strong>Pagamento:</strong> ${funcionario.pagamento}</p>
+            <p><strong>Carro:</strong> ${funcionario.carro}</p>
+            <p><strong>Placa:</strong> ${funcionario.placa}</p>
+            <p><strong>Data:</strong> ${funcionario.data}</p>
+            <p><strong>Horário:</strong> ${funcionario.horario}</p>
+            <p><strong>Preço:</strong> ${funcionario.preco}</p>
+            <p><strong>Situação:</strong> ${funcionario.situacao}</p>
+            <p><strong>Comentário:</strong> ${funcionario.comentario}</p>
+          </div>
+          <button class="bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="excluirAnuncio(this)">
+            Excluir
+          </button>
+        `;
+        anunciosDiv.appendChild(anuncio);
+      });
+    }
+
     function adicionarAnuncio() {
       const cliente = document.getElementById('cliente').value;
       const servico = document.getElementById('servico').value;
@@ -201,6 +240,8 @@
       const anuncio = button.parentElement;
       anuncio.remove();
     }
+
+    window.onload = fetchFuncionarios;
   </script>
 
 </body>
