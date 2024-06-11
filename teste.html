@@ -1,52 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionários</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HISTÓRICO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="./js/main.js" type="module" defer></script>
+  <script src="./src/js/exports.js" type="module" defer></script>
+  <script src="./src/js/funcionarios.js" type="module" defer></script>
+
 </head>
-<body>
-    <h1>Lista de Funcionários</h1>
+<body class="bg-green-200">
+
     <div id="funcionarios-list"></div>
 
-    <script>
-        // Função para buscar a lista de funcionários da API
-        async function fetchFuncionarios() {
-            try {
-                const response = await fetch('http://localhost:8080/v1/lavaRapido/funcionarios', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
 
-                if (response.status === 200) {
-                    const dadosFuncionarios = await response.json();
-                    displayFuncionarios(dadosFuncionarios);
-                } else if (response.status === 404) {
-                    const error = await response.json();
-                    document.getElementById('funcionarios-list').innerText = error.message;
-                }
-            } catch (error) {
-                console.error('Erro ao buscar funcionários:', error);
-                document.getElementById('funcionarios-list').innerText = 'Erro ao buscar funcionários';
-            }
-        }
-
-        // Função para exibir a lista de funcionários no HTML
-        function displayFuncionarios(funcionarios) {
-            const funcionariosList = document.getElementById('funcionarios-list');
-            funcionariosList.innerHTML = '';
-
-            funcionarios.forEach(funcionario => {
-                const funcionarioItem = document.createElement('div');
-                funcionarioItem.innerText = `Nome: ${funcionario.nome}, Cargo: ${funcionario.cargo}`;
-                funcionariosList.appendChild(funcionarioItem);
-            });
-        }
-
-        // Chama a função para buscar a lista de funcionários quando a página carrega
-        window.onload = fetchFuncionarios;
-    </script>
 </body>
 </html>

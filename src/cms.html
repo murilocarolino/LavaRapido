@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HISTÓRICO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="./js/main.js" type="module" defer></script>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .form-container {
+      width: 50%;
+    }
+    .menu-container {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+    }
+    .menu-buttons {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      background-color: #9aa1ac;
+      border: 1px solid #4b5563;
+      border-radius: 8px;
+      padding: 8px;
+      z-index: 1000;
+    }
+    .menu-buttons button {
+      margin: 4px 0;
+    }
+    .menu-buttons.show {
+      display: flex;
+    }
+    .krona-one {
+      font-family: 'Krona One', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-black">
+    <div class="top-bar"></div>
+
+  <div class="bg-black p-6 flex justify-between items-center w-full">
+    <div class="flex items-center space-x-2">
+      <img src="./img/logo.png" alt="Logo" class="w-[130px]">
+      <span class="text-white text-2xl font-bold krona-one">HISTÓRICO</span>
+    </div>
+    <div class="menu-container">
+      <img src="./menu.png" alt="Menu" class="h-8 w-8 cursor-pointer" onclick="toggleMenu()">
+    </div>
+  </div>
+
+  <div class="flex gap-[11%] w-[90%] h-[70px] bg-[#202020] ml-[100px] items-center rounded-[100px]">
+    <p class="text-white ml-[120px]"> Cliente </p>
+    <p class="text-white"> Veiculo </p>
+    <p class="text-white"> Serviços </p>
+    <p class="text-white"> Detalhes </p>
+    <p class="text-white"> Preço </p>
+    <p class="text-white"> Horário</p>
+    <button class="bg-[#2AD8E3] text-white font-bold py-2 px-4 rounded-[100%] focus:outline-none focus:shadow-outline" type="button" onclick="adicionarAnuncio()">
+        +
+    </button>
+</div>
+
+  <div class=" space-x-10 w-screen h-[50%]">
+    <div class="form-container bg-[#6C6B6B] w-[90%] h-[50%] p-20 rounded-md mt-10 ml-[100px]">
+ 
+      <form id="form-imovel" class="flex flex-row space-x-[195px]">
+
+        <div class="mb-4 flex flex-col mt-[-50px]">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="endereco">Cliente</label>
+          <input id="nomeCliente" class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cliente" type="text" placeholder="Nome do Cliente">
+        </div>
+        
+        <div class="mb-4 flex flex-col mt-[-50px]">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="tipo">Serviço</label>
+          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="servico" type="text" placeholder="Tipo do Serviço">
+        </div>
+
+        <div class="mb-4 flex flex-col mt-[-50px]">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="preco">Profissional</label>
+          <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="profissional" type="text" placeholder="Profissional">
+        </div>
+
+        <div class="mb-4 flex flex-col mt-[-50px]">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="pagamento">Pagamento</label>
+            <input class="shadow appearance-none border rounded w-[170%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pagamento" type="text" placeholder="Pagamento">
+        </div>
+    
+      </form>
+
+      <form class="flex flex-row space-x-[50px]">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="carro">Carro</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="carro" type="text" placeholder="Carro">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="placa">Placa</label>
+            <input class="shadow appearance-none border rounded w-[130px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="placa" type="text" placeholder="Placa">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="data">Data</label>
+            <input class="shadow appearance-none border rounded w-[130px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="data" type="text" placeholder="Data">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="horario">Horário</label>
+            <input class="shadow appearance-none border rounded w-[130px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="horario" type="text" placeholder="Horario">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="preco">Preço</label>
+            <input class="shadow appearance-none border rounded w-[130px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="preco" type="text" placeholder="Preço">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="situacao">Situação</label>
+            <input class="shadow appearance-none border rounded w-[130px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="situacao" type="text" placeholder="Situação">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="comentario">Comentário</label>
+            <input class="shadow appearance-none border rounded w-[400px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="comentario" type="text" placeholder="Comentário">
+        </div>
+      </form>
+    </div>
+
+    <div id="anuncios" class="w-2/3 space-y-4 mt-10">
+      <!-- Os anúncios serão adicionados aqui -->
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+
+    async function fetchFuncionarios() {
+      try {
+        const response = await fetch('http://localhost:8080/v1/lavaRapido/funcionarios');
+        const data = await response.json();
+        displayFuncionarios(data);
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    }
+
+    function displayFuncionarios(funcionarios) {
+      const anunciosDiv = document.getElementById('anuncios');
+      anunciosDiv.innerHTML = '';
+      funcionarios.forEach(funcionario => {
+        const anuncio = document.createElement('div');
+        anuncio.classList.add('bg-white', 'p-4', 'rounded-md', 'shadow-md', 'flex', 'justify-between', 'items-center');
+
+        anuncio.innerHTML = `
+          <div>
+            <p><strong>Cliente:</strong> ${funcionario.cliente}</p>
+            <p><strong>Serviço:</strong> ${funcionario.servico}</p>
+            <p><strong>Profissional:</strong> ${funcionario.profissional}</p>
+            <p><strong>Pagamento:</strong> ${funcionario.pagamento}</p>
+            <p><strong>Carro:</strong> ${funcionario.carro}</p>
+            <p><strong>Placa:</strong> ${funcionario.placa}</p>
+            <p><strong>Data:</strong> ${funcionario.data}</p>
+            <p><strong>Horário:</strong> ${funcionario.horario}</p>
+            <p><strong>Preço:</strong> ${funcionario.preco}</p>
+            <p><strong>Situação:</strong> ${funcionario.situacao}</p>
+            <p><strong>Comentário:</strong> ${funcionario.comentario}</p>
+          </div>
+          <button class="bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="excluirAnuncio(this)">
+            Excluir
+          </button>
+        `;
+        anunciosDiv.appendChild(anuncio);
+      });
+    }
+
+    function adicionarAnuncio() {
+      const cliente = document.getElementById('cliente').value;
+      const servico = document.getElementById('servico').value;
+      const profissional = document.getElementById('profissional').value;
+      const pagamento = document.getElementById('pagamento').value;
+      const carro = document.getElementById('carro').value;
+      const placa = document.getElementById('placa').value;
+      const data = document.getElementById('data').value;
+      const horario = document.getElementById('horario').value;
+      const preco = document.getElementById('preco').value;
+      const situacao = document.getElementById('situacao').value;
+      const comentario = document.getElementById('comentario').value;
+
+      if (cliente && servico && profissional && pagamento && carro && placa && data && horario && preco && situacao && comentario) {
+        const anunciosDiv = document.getElementById('anuncios');
+        const anuncio = document.createElement('div');
+        anuncio.classList.add('bg-white', 'p-4', 'rounded-md', 'shadow-md', 'flex', 'justify-between', 'items-center');
+
+        anuncio.innerHTML = `
+          <div>
+            <p><strong>Cliente:</strong> ${cliente}</p>
+            <p><strong>Serviço:</strong> ${servico}</p>
+            <p><strong>Profissional:</strong> ${profissional}</p>
+            <p><strong>Pagamento:</strong> ${pagamento}</p>
+            <p><strong>Carro:</strong> ${carro}</p>
+            <p><strong>Placa:</strong> ${placa}</p>
+            <p><strong>Data:</strong> ${data}</p>
+            <p><strong>Horário:</strong> ${horario}</p>
+            <p><strong>Preço:</strong> ${preco}</p>
+            <p><strong>Situação:</strong> ${situacao}</p>
+            <p><strong>Comentário:</strong> ${comentario}</p>
+          </div>
+          <button class="bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="excluirAnuncio(this)">
+            Excluir
+          </button>
+        `;
+        anunciosDiv.appendChild(anuncio);
+      } else {
+        alert('Por favor, preencha todos os campos.');
+      }
+    }
+
+    function excluirAnuncio(button) {
+      const anuncio = button.parentElement;
+      anuncio.remove();
+    }
+
+    window.onload = fetchFuncionarios;
+  </script>
+
+</body>
+</html>

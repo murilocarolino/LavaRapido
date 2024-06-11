@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                fundo: '#2E2E2E',
+              }
+            }
+          }
+        }
+      </script>
+    <title>tela agendamento</title>
+</head>
+<body class="bg-fundo">
+
+    <header>
+    <div class="pl-[5px] pt-[20px] gap-[20px] flex ">
+        <img src="./img/logoo.png" alt="Logo car wash">
+
+        <div class="flex gap-[15px] pt-[10px] pl-[20px] w-[270px] h-[50px] bg-black rounded-[35px]">
+            <p class="text-white">Agendamento</p>
+            <p class="text-white">Serviços</p>
+            <p class="text-white">Sobre</p>
+        </div>
+
+       </div>
+    </header>
+
+    <main>
+
+        <div class="pt-[40px]">
+           
+            <h2 class="text-[#23F2FF]  pl-[40px] mb-[15px] font-bold">AGENDAMENTO</h2>
+        
+            <div class="fixed drop-shadow w-[280px] pt-[6px] pl-[15px] left-[40px] h-[60px] rounded-[8px] bg-[#3A3A3A]">
+                <p class="text-[#23F2FF] font-bold">R$150,00</p>
+                <p class="text-white font-bold">LAVAGEM SIMPLES</p>
+            </div>
+
+        </div>
+        
+        <div class="pt-[100px] pl-[40px]">
+        <div class="w-[290px] pt-[40px] pl-[20px] rounded-[10px] h-[310px] bg-[#3A3A3A] ">
+            <p class="text-[#23F2FF] mb-[10px]">CARRO</p>
+            <input c type="text">
+            <p class="text-[#23F2FF] mt-[20px] mb-[10px]">MENSAGEM</p>
+            <input type="text" >
+        </div>
+    </div>
+        
+    </main>
+    
+</body>
+</html>
