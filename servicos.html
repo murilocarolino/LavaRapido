@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./src/js/exports.js" type="module" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>HOME</title>
 </head>
 
 <body class="bg-[#202020]">
-
-    <header>
-
-    </header>
 
     <main class="grid grid-cols-3">
 
@@ -35,17 +32,85 @@
             </div>
         </div>
 
-        <div id="servicos2" class="col-span-0 mt-[50px] h-[93%] w-[90%] bg-[#000000] opacity-50 rounded-lg">
-            <input type="text" class="rounded-md ">
-            <div class="h-[50px] w-[50px] bg-white rounded-lg"></div>
-            
+        <div id="servicos2" class="col-span-0 mt-[50px] h-[93%] w-[90%] bg-[#000000] rounded-lg">
+
+            <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+            <div class="content space-x-10">
+                <div class="form-container pt-[60px] pl-[19%] rounded-md">
+
+                    <form id="form-imovel">
+
+                        <div class="flex flex-row">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 ml-[-40px] text-sm font-bold mb-2" for="trabalho"> Adicionar Serviços </label>
+                                <input
+                                    class="shadow appearance-none border rounded ml-[-40px] w-[400px] h-[50px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="trabalho" type="text" placeholder="Adicionar Serviços">
+                            </div>
+
+                            <button class="bg-green-700 h-[50px] w-[50px] mt-[28px] ml-[30px] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="button" onclick="adicionarServico()">
+                                +
+                            </button>
+                        </div>
+
+
+                        <div class="mb-4">
+                            <label class="block text-gray-700 ml-[-40px] text-sm font-bold mb-2" for="descricao"> Descrição </label>
+                            <input
+                                class="shadow appearance-none border rounded ml-[-40px] w-[480px] h-[270px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="descricao" type="text" placeholder="Descrição">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm ml-[-40px] font-bold mb-2" for="preco"> Preço </label>
+                            <input
+                                class="shadow appearance-none border rounded ml-[-40px] w-[480px] h-[50px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="preco" type="text" placeholder="Preço">
+                        </div>
+
+
+
+                    </form>
+                </div>
+
+                <div id="servicos" class="w-2/3 space-y-4 mt-10"></div>
+            </div>
+
+</body>
+
+
+</div>
+
+<div id="servicos3" class="col-span-0 mt-[50px] h-[93%] w-[90%] rounded-l">
+
+    <div class="w-[400px] h-[500px] bg-green-700">
+        <div id="funcionarios-list"></div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <div class="content space-x-10">
+        <div class="form-container p-20 rounded-md mt-10 ml-10">
+
+            <button class="z-[3] bg-white" ></button>
+
+                <a class="bg-white w-[80%] h-[50px]" href="./cadastroFuncionario.html">blabla</a>
+
         </div>
 
-        <div id="servicos3" class="col-span-1 h-24 w-24 bg-[white]">
-            
+        <div id="anuncios" class="w-2/3 space-y-4 mt-10">
         </div>
-        
-    </main>
-     
+    </div>
+
+    </body>
+
+
+</div>
+</div>
+
+</main>
+
 
 </body>
